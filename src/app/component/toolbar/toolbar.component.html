@@ -1,0 +1,31 @@
+<div fxLayout="column" class="toolbar-wrapper">
+
+  <div fxLayout="row" fxFlexFill>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="30">
+      <a class="logo-link" fxLayout="row" routerLink="/timeline">
+        <mat-icon class="logo-icon">event</mat-icon>
+        <div class="logo-text">LEVENTS</div>
+      </a>
+    </div>
+
+    <div fxLayout="row" fxFlex="65" fxLayoutAlign="end center">
+
+      <a [routerLink]="'/timeline'" class="toolbar-link">Timeline</a>
+      <a [routerLink]="'/all-events'" class="toolbar-link">All Events</a>
+      <a [routerLink]="'/login'" class="toolbar-link" *ngIf="!isUserLoggedIn">Sign in</a>
+
+
+      <button *ngIf="isUserLoggedIn" type="button" mat-icon-button matSuffix
+              [attr.aria-label]="'Account options'"
+              [matMenuTriggerFor]="menu">
+        <mat-icon class="icon-display">person</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="'/account'">My Account</button>
+        <button mat-menu-item (click)="logOut()">Log out</button>
+      </mat-menu>
+    </div>
+  </div>
+</div>
+<mat-divider></mat-divider>
