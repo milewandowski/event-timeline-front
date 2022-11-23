@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../model/user';
 import { CustomHttpResponse } from '../model/custom-http-response';
+import { UserRequest } from '../model/user-request';
 
 @Injectable({
   providedIn: 'root'
@@ -28,10 +29,8 @@ export class UserService {
   }
 
   public updatePassword(username: string, password: string): Observable<CustomHttpResponse> {
-    return this.httpClient.get<CustomHttpResponse>(`${this.apiUserUrl}/changePassword/${username}`, {
-      params: new HttpParams()
-        .set('password', password)
-    });
+    const userRequest = new UserRequest(username, password);
+    return this.httpClient.put<CustomHttpResponse>(`${this.apiUserUrl}/password/${username}`, userRequest);
   }
 
   public addUsersToLocalCache(users: User[]): void {

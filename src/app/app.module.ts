@@ -9,6 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import {NgxPrintModule} from 'ngx-print';
 
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
@@ -51,6 +52,7 @@ import { EventManagementComponent } from './component/event-management/event-man
 import { EventCreateComponent } from './component/event-create/event-create.component';
 import { EventUpdateComponent } from './component/event-update/event-update.component';
 import { EventsManagementComponent } from './component/events-management/events-management.component';
+import { AccountComponent } from './component/account/account.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { EventsManagementComponent } from './component/events-management/events-
     EventManagementComponent,
     EventCreateComponent,
     EventUpdateComponent,
-    EventsManagementComponent
+    EventsManagementComponent,
+    AccountComponent
   ], 
    imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { EventsManagementComponent } from './component/events-management/events-
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    NgxPrintModule,
 
     MatInputModule,
     MatAutocompleteModule,

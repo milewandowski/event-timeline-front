@@ -13,19 +13,10 @@
 
       <a [routerLink]="'/timeline'" class="toolbar-link">Timeline</a>
       <a [routerLink]="'/all-events'" class="toolbar-link">All Events</a>
-      <a [routerLink]="'/events-management'" class="toolbar-link">Events Management</a>
       <a [routerLink]="'/login'" class="toolbar-link" *ngIf="!isUserLoggedIn">Sign in</a>
-
-
-      <button *ngIf="isUserLoggedIn" type="button" mat-icon-button matSuffix
-              [attr.aria-label]="'Account options'"
-              [matMenuTriggerFor]="menu">
-        <mat-icon class="icon-display">person</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="'/account'">My Account</button>
-        <button mat-menu-item (click)="logOut()">Log out</button>
-      </mat-menu>
+      <a [routerLink]="'/events-management'" class="toolbar-link" *ngIf="isUserLoggedIn">Events Management</a>
+      <a [routerLink]="'/account'" class="toolbar-link" *ngIf="isUserLoggedIn">Account</a>
+      <a [routerLink]="" (click)="logout()" class="toolbar-link" *ngIf="isUserLoggedIn">Sign out</a>
     </div>
   </div>
 </div>

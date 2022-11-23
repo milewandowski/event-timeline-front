@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { User } from '../model/user';
 
 @Injectable({
@@ -12,6 +12,7 @@ export class AuthenticationService {
 
   public apiUserUrl = `${environment.apiUrl}/user`;
   public isUserLogged = false;
+  isAdminLoggedIn: Subject<boolean> = new BehaviorSubject<boolean>(false);
   private token: string = '';
   private loggedInUsername: string = '';
   private jwtHelper = new JwtHelperService();
@@ -28,11 +29,13 @@ export class AuthenticationService {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     localStorage.removeItem('users');
+    this.isAdminLoggedIn.next(false);
   }
 
   public saveToken(token: string): void {
     this.token = token;
     localStorage.setItem('token', token);
+    this.isAdminLoggedIn.next(true);
   }
 
   public addUserToLocalCache(user: User): void {

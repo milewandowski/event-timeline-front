@@ -23,6 +23,11 @@
                     </mat-form-field>
                 </div>
 
+                <button printSectionId="print-section" ngxPrint [useExistingCss]="true" mat-icon-button matSuffix
+                    style="padding-bottom: 50px">
+                    <mat-icon class="icon-display">print</mat-icon>
+                </button>
+
                 <button type="button" mat-icon-button matSuffix style="padding-bottom: 50px"
                     [attr.aria-label]="'Sorting options'" [matMenuTriggerFor]="sortMenu">
                     <mat-icon class="icon-display">sort</mat-icon>
@@ -45,7 +50,7 @@
             </div>
         </div>
 
-        <table mat-table class="mat-elevation-z8 reservations-table" [dataSource]="dataSource">
+        <table mat-table class="mat-elevation-z8 reservations-table" [dataSource]="dataSource" id="print-section">
 
             <div class="spinner-container" *ngIf="dataSource.loading$ | async">
                 <mat-spinner></mat-spinner>

@@ -22,13 +22,14 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {
     this.isUserEmployeeOrAdmin = this.authenticationService.isUserLoggedIn() &&
       (this.authenticationService.getUserFromLocalCache().role === Role.ROLE_EMPLOYEE || this.authenticationService.getUserFromLocalCache().role === Role.ROLE_ADMIN);
-    this.isUserLoggedIn = this.authenticationService.isUserLoggedIn();
     this.user = this.authenticationService.getUserFromLocalCache();
+    this.authenticationService.isAdminLoggedIn.subscribe(
+      value => this.isUserLoggedIn = value
+    );
   }
 
-  logOut(): void {
+  logout(): void {
     this.authenticationService.logout();
-    this.isUserLoggedIn = false;
     this.router.navigateByUrl('/timeline');
   }
 }

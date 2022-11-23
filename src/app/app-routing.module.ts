@@ -9,11 +9,13 @@ import { EventDetailsComponent } from './component/event-details/event-details.c
 import { EventCreateComponent } from './component/event-create/event-create.component';
 import { EventUpdateComponent } from './component/event-update/event-update.component';
 import { EventsManagementComponent } from './component/events-management/events-management.component';
+import { AccountComponent } from './component/account/account.component';
 
 const routes: Routes = [
-  {path: 'event-create', component: EventCreateComponent},
-  {path: 'event-update/:id', component: EventUpdateComponent},
-  {path: 'events-management', component: EventsManagementComponent},
+  {path: 'event-create', component: EventCreateComponent, canActivate: [AuthenticationGuard]},
+  {path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard]},
+  {path: 'event-update/:id', component: EventUpdateComponent, canActivate: [AuthenticationGuard]},
+  {path: 'events-management', component: EventsManagementComponent, canActivate: [AuthenticationGuard]},
   {path: 'all-events', component: AllEventsComponent},
   {path: 'event-details/:id', component: EventDetailsComponent},
   {path: 'timeline', component: TimelineComponent},
