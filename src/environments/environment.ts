@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://lew-event-timeline.herokuapp.com/'
+  apiUrl: 'http://127.0.0.1:8080'
 };
 
 /*
