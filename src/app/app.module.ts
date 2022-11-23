@@ -48,6 +48,9 @@ import { LoginComponent } from './component/login/login.component';
 import { AllEventsComponent } from './component/all-events/all-events.component';
 import { EventDetailsComponent } from './component/event-details/event-details.component';
 import { EventManagementComponent } from './component/event-management/event-management.component';
+import { EventCreateComponent } from './component/event-create/event-create.component';
+import { EventUpdateComponent } from './component/event-update/event-update.component';
+import { EventsManagementComponent } from './component/events-management/events-management.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { EventManagementComponent } from './component/event-management/event-man
     LoginComponent,
     AllEventsComponent,
     EventDetailsComponent,
-    EventManagementComponent
+    EventManagementComponent,
+    EventCreateComponent,
+    EventUpdateComponent,
+    EventsManagementComponent
   ], 
    imports: [
     BrowserModule,

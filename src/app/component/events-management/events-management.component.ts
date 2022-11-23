@@ -8,11 +8,12 @@ import { EventsDataSource } from 'src/app/datasource/events-data-source';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 @Component({
-  selector: 'app-all-events',
-  templateUrl: './all-events.component.html',
-  styleUrls: ['./all-events.component.css']
+  selector: 'app-events-management',
+  templateUrl: './events-management.component.html',
+  styleUrls: ['./events-management.component.css']
 })
-export class AllEventsComponent implements OnInit, AfterViewInit {
+export class EventsManagementComponent implements OnInit {
+
 
   nameFormGroup = new FormGroup({
     name: new FormControl('')

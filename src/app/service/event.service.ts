@@ -3,13 +3,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Event } from '../model/event';
+import { EventRequest } from '../model/event-request';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-
-
   private apiEventUrl = `${environment.apiUrl}/event`;
 
   constructor(private httpClient: HttpClient) {
@@ -44,5 +43,17 @@ export class EventService {
       }
 
     return this.httpClient.get<any>(`${this.apiEventUrl}`, {params});
+  }
+
+  addEvent(eventRequest: EventRequest): Observable<Event> {
+    return this.httpClient.post<Event>(this.apiEventUrl, eventRequest);
+  }
+
+  updateEvent(eventRequest: EventRequest, id: number): Observable<Event> {
+    return this.httpClient.put<Event>(`${this.apiEventUrl}/${id}`, eventRequest);
+  }
+
+  deleteEvent(id: number) {
+    return this.httpClient.delete<any>(`${this.apiEventUrl}/${id}`);
   }
 }

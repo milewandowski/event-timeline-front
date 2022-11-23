@@ -1,10 +1,12 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="rentals-management-container">
 
     <div class="reservations-table-container">
+        
+        <h2>Click on event to update or delete</h2>
 
         <div fxLayout="row" fxLayoutAlign="space-between center">
 
-            <h1>All Events</h1>
+            <button type="button" class="main-btn" [routerLink]="'/event-create'">ADD EVENT</button>
 
             <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="4%">
                 <div fxLayout="row" fxLayoutGap="2%">
@@ -86,7 +88,7 @@
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row [routerLink]="'/event-details/' + row.id" *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr mat-row [routerLink]="'/event-update/' + row.id" *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
         <mat-divider></mat-divider>
         <mat-paginator [length]="dataSource.totalElements" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"

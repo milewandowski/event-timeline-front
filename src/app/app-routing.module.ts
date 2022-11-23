@@ -6,8 +6,14 @@ import {AuthenticationEmployeeGuard} from './guard/authentication-employee.guard
 import { LoginComponent } from './component/login/login.component';
 import { AllEventsComponent } from './component/all-events/all-events.component';
 import { EventDetailsComponent } from './component/event-details/event-details.component';
+import { EventCreateComponent } from './component/event-create/event-create.component';
+import { EventUpdateComponent } from './component/event-update/event-update.component';
+import { EventsManagementComponent } from './component/events-management/events-management.component';
 
 const routes: Routes = [
+  {path: 'event-create', component: EventCreateComponent},
+  {path: 'event-update/:id', component: EventUpdateComponent},
+  {path: 'events-management', component: EventsManagementComponent},
   {path: 'all-events', component: AllEventsComponent},
   {path: 'event-details/:id', component: EventDetailsComponent},
   {path: 'timeline', component: TimelineComponent},
